@@ -1,0 +1,893 @@
+/* Global classes */
+
+html {
+  scroll-behavior: smooth;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --grey-sc: #f5f5f5;
+  --primary-color: #0078ff;
+  --lighter-primary: #cde1f8;
+  --work-counter:0;
+  --years-counter:0;
+  --clients-counter:0;
+  --awards-counter:0;
+}
+
+body {
+  color: #4e4e4e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition-duration: 0.3s;
+}
+
+img {
+  display: block;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  color: black;
+  position: relative;
+}
+
+h1 {
+  font-size: 72px;
+  line-height: 86.4px;
+  font-weight: 600;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 40px;
+}
+h2:before {
+  content: " ";
+  height: 3px;
+  width: 17%;
+  position: absolute;
+  top: 120%;
+  left: 0%;
+  right: 0;
+  background-color: var(--primary-color);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  cursor: pointer;
+  transition-duration: 0.2s;
+  border: 0;
+  color: white;
+  font-size: 19px;
+}
+
+button:hover {
+  box-shadow: 0 0 0 4px var(--lighter-primary);
+  background-color: #3393ff;
+}
+
+.section-heading {
+  text-align: center;
+  margin: 0px auto 50px;
+  width: 100%;
+  position: relative;
+}
+
+.section-heading h3 {
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.section-heading p {
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+div.heading-line {
+  height: 5px;
+  width: 40px;
+  margin: 0px auto;
+  background-color: var(--primary-color);
+}
+
+.blue-layer {
+  height: 100%;
+  padding: 130px 0px;
+  background-color: hsla(212, 100%, 50%, 0.7);
+}
+
+.ico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+i {
+  transition-duration: 0s;
+}
+
+.back-to-top {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  color: white;
+  background-color: var(--primary-color);
+  position: fixed;
+  bottom: 2%;
+  right: 1%;
+}
+
+.back-to-top:hover {
+  filter: brightness(120%);
+}
+
+/*********************************** navbar **************************************/
+
+nav {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+nav .navbar-brand {
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.navbar-toggler-icon {
+  color: white;
+}
+
+nav a:hover {
+  color: white;
+}
+
+.nav-item {
+  margin-left: 30px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0;
+  letter-spacing: 0.4px;
+}
+
+.nav-link:focus {
+  color: white;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-item a.nav-link:before {
+  content: " ";
+  height: 2px;
+  width: 0%;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  right: 0;
+  background-color: white;
+  transition-duration: 0.3s;
+}
+
+.nav-item a.nav-link:hover:before {
+  width: 80%;
+}
+
+.nav-item a.active:before {
+  width: 80%;
+}
+
+/* drop item in nav */
+li.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 8px 10px;
+}
+
+.dropdown-item:hover {
+  color: var(--primary-color);
+}
+
+.dropright {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dropright-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: white;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 0;
+}
+
+.dropright-content li a {
+  color: black;
+  display: block;
+  padding: 8px 10px;
+}
+
+.dropright-content li a:hover {
+  color: var(--primary-color);
+}
+
+.dropright-content li:hover {
+  background-color: #f1f1f1;
+}
+
+.dropright:hover .dropright-content {
+  display: block;
+}
+
+/*********************************** Home **************************************/
+
+#home {
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url(../images/backgrounds/hero-bg.jpg);
+  position: relative;
+}
+
+#home .home-layer {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  transition: all 0s;
+}
+
+#home .home-content {
+  height: 100%;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-typing {
+  font-size: 40px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  width: 19%;
+  animation: word-hide 16s infinite ease;
+}
+
+.home-typing::after {
+  content: "|";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -2%;
+  animation: auto-hide 0.7s infinite ease;
+}
+
+.auto-typing:before {
+  content: "";
+  font-size: 40px;
+  padding: 0px 12px;
+  animation: auto-write 16s infinite ease;
+}
+
+@keyframes auto-hide {
+  0% {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: transparent;
+  }
+}
+
+@keyframes word-hide {
+  0% {
+    width: 14%;
+  }
+
+  15% {
+    width: 14%;
+  }
+
+  20% {
+    width: 1%;
+  }
+
+  25% {
+    width: 16%;
+  }
+
+  40% {
+    width: 16%;
+  }
+
+  45% {
+    width: 1%;
+  }
+
+  50% {
+    width: 16%;
+  }
+
+  65% {
+    width: 16%;
+  }
+
+  70% {
+    width: 1%;
+  }
+
+  75% {
+    width: 21%;
+  }
+  85% {
+    width: 21%;
+  }
+
+  90% {
+    width: 1%;
+  }
+
+  100% {
+    width: 14%;
+  }
+}
+
+@keyframes auto-write {
+  0% {
+    content: "Designer";
+  }
+
+  20% {
+    content: "Designer";
+  }
+
+  21% {
+    content: "Developer";
+  }
+
+  45% {
+    content: "Developer";
+  }
+
+  46% {
+    content: "Freelancer";
+  }
+
+  70% {
+    content: "Freelancer";
+  }
+
+  71% {
+    content: "Photographer";
+  }
+
+  90% {
+    content: "Photographer";
+  }
+
+  91% {
+    content: "Designer";
+  }
+
+  100% {
+    content: "Designer";
+  }
+}
+
+/*********************************** about **************************************/
+
+#about {
+  padding: 50px 0px;
+  background-color: var(--grey-sc);
+}
+
+#about .container {
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
+  padding: 64px 48px;
+}
+
+#about span {
+  color: black;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.skill-bars li {
+  margin-bottom: 20px;
+}
+
+.skill-bars p {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.progress {
+  height: 0.7rem;
+  background-color: var(--lighter-primary);
+}
+
+.about-me p {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+}
+
+/*********************************** services **************************************/
+
+#services {
+  padding: 50px 0px;
+  background-color: var(--grey-sc);
+}
+
+.service-card {
+  text-align: center;
+  background-color: white;
+  padding: 40px 21px;
+  margin-bottom: 48px;
+}
+
+.service-card h4 {
+  font-size: 22px;
+  margin: 10px 0px;
+  text-transform: uppercase;
+}
+
+.service-card i {
+  font-size: 35px;
+  transition: transform 0.6s;
+}
+
+.ico-bg {
+  width: 120px;
+  height: 120px;
+  color: black;
+  border: 10px solid var(--primary-color);
+  margin: auto;
+  transition-duration: 0.5s;
+}
+
+.service-card:hover .ico-bg {
+  color: white;
+  border-color: var(--lighter-primary);
+  background-color: var(--primary-color);
+}
+
+.service-card:hover .ico-bg i {
+  transform: scale(1.3);
+  transition: transform 0.6s 0.4s;
+}
+
+/*********************************** counter **************************************/
+#counter {
+  height: fit-content;
+  background-image: url(../images/backgrounds/counters-bg.jpg);
+  background-attachment: fixed;
+}
+
+.counter-item {
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3));
+}
+
+.count-ico {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto;
+  border: 8px solid var(--lighter-primary);
+}
+
+.count-ico i {
+  font-size: 30px;
+}
+
+.counter-item p {
+  font-size: 32px;
+  margin: 15px 0px 0px;
+}
+
+.counter-item span {
+  text-transform: uppercase;
+}
+
+/*********************************** work **************************************/
+
+#work {
+  padding: 70px 0px;
+  background-color: var(--grey-sc);
+}
+
+.work-item {
+  background-color: white;
+  box-shadow: 0px 4px 15px -10px rgba(0, 0, 0, 0.5);
+}
+
+.work-pic img {
+  transition-duration: 1s;
+}
+.work-details {
+  padding: 25px 15px 10px;
+}
+
+.work-details p {
+  font-size: 13px;
+}
+
+.work-details p span {
+  color: var(--primary-color);
+}
+
+.work-details .ico {
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.work-details .ico i {
+  font-size: 25px;
+  color: var(--primary-color);
+}
+
+.work-item:hover .work-pic img {
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+/* pic modal style */
+
+.modal-content {
+  background-color: transparent;
+  border: 0;
+  width: 100%;
+}
+.modal-header {
+  border: 0;
+  justify-content: end;
+}
+.btn-close {
+  background: none;
+  font-size: 25px;
+  color: white;
+  opacity: 1;
+}
+.btn-close:hover {
+  color: var(--lighter-primary);
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 60%;
+    margin: 1.75rem auto;
+  }
+}
+
+#work .carousel-item {
+  display: block;
+  padding: 0 5px;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  position: static;
+  width: 20%;
+}
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+  box-shadow: none;
+  background-color: rgba(204, 224, 247, 0.2);
+  border-radius: 10px;
+}
+.carousel-control-next:hover > span,
+.carousel-control-prev:hover > span {
+  filter: drop-shadow(0px 0px 2px #000);
+}
+
+/*********************************** feedback **************************************/
+#feedback {
+  height: fit-content;
+  background-image: url(../images/backgrounds/overlay-bg.jpg);
+  background-attachment: fixed;
+}
+
+.fb-img img {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.carousel-indicators button:hover {
+  box-shadow: none;
+}
+
+.carousel-indicators {
+  position: static;
+}
+
+.carousel-indicators [data-bs-target] {
+  border: 0;
+  margin-top: 20px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/*********************************** work **************************************/
+#blog {
+  padding: 70px 0px;
+  background-color: var(--grey-sc);
+}
+
+.b-floating-text h6 {
+  background-color: var(--primary-color);
+  text-align: center;
+  border-radius: 4px;
+  position: absolute;
+  left: 50%;
+  padding: 10px 15px;
+  transform: translate(-50%, -100%);
+  text-transform: uppercase;
+  color: white;
+  font-size: 11px;
+}
+
+/*********************************** contact **************************************/
+
+#contact {
+  background-image: url(../images/backgrounds/overlay-bg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  height: fit-content;
+}
+
+#contact .container {
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
+  padding: 64px 48px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  transition-duration: 0s;
+  max-height: 300px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.contact-form textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus {
+  outline: 0;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 0 0 4px var(--lighter-primary);
+}
+
+.contact-form input::placeholder,
+textarea::placeholder {
+  padding: 5px 0px;
+}
+.contact-form button {
+  padding: 10px 24px;
+  background-color: var(--primary-color);
+}
+
+.contact-touch p {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+}
+
+.contact-touch ul li span {
+  font-size: 16px;
+  color: var(--primary-color);
+  width: 15px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: inline-block;
+}
+
+.contact-touch .ico-bg {
+  width: 50px;
+  height: 50px;
+  border-width: 5px;
+  margin-right: 10px;
+}
+
+.contact-touch .ico-bg:hover {
+  color: white;
+  border-color: var(--lighter-primary);
+  background-color: var(--primary-color);
+}
+.contact-touch .ico-bg i {
+  font-size: 22px;
+  transition: transform 0.6s;
+}
+.contact-touch .ico-bg:hover i {
+  transform: scale(1.1);
+  transition: transform 0.6s 0.4s;
+}
+
+/*********************************** footer **************************************/
+
+footer {
+  padding: 30px 0px;
+  text-align: center;
+  background-color: #0066da;
+  box-shadow: inset 0px 10px 20px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+/*********************************** Media **************************************/
+@media screen and (max-width: 992px) {
+  .dropdown:hover > .dropdown-menu {
+    position: absolute;
+    z-index: 2;
+  }
+
+  .nav-item {
+    margin: 10px auto;
+  }
+  .navbar-expand-lg .navbar-nav .nav-link {
+    color: black;
+  }
+  .navbar-nav {
+    background-color: white;
+  }
+
+  .nav-item a.nav-link:before {
+    background-color: black;
+  }
+
+  @keyframes word-hide {
+    0% {
+      width: 38%;
+    }
+  
+    15% {
+      width: 38%;
+    }
+  
+    20% {
+      width: 1%;
+    }
+  
+    25% {
+      width: 45%;
+    }
+  
+    40% {
+      width: 45%;
+    }
+  
+    45% {
+      width: 1%;
+    }
+  
+    50% {
+      width: 45%;
+    }
+  
+    65% {
+      width: 45%;
+    }
+  
+    70% {
+      width: 1%;
+    }
+  
+    75% {
+      width: 60%;
+    }
+    85% {
+      width: 60%;
+    }
+  
+    90% {
+      width: 1%;
+    }
+  
+    100% {
+      width: 38%;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1500px) {
+  .dropright-content {
+    left: -110%;
+  }
+  @keyframes word-hide {
+    0% {
+      width: 20%;
+    }
+  
+    15% {
+      width: 20%;
+    }
+  
+    20% {
+      width: 1%;
+    }
+  
+    25% {
+      width: 22%;
+    }
+  
+    40% {
+      width: 22%;
+    }
+  
+    45% {
+      width: 1%;
+    }
+  
+    50% {
+      width: 22%;
+    }
+  
+    65% {
+      width: 22%;
+    }
+  
+    70% {
+      width: 1%;
+    }
+  
+    75% {
+      width: 28%;
+    }
+    85% {
+      width: 28%;
+    }
+  
+    90% {
+      width: 1%;
+    }
+  
+    100% {
+      width: 20%;
+    }
+  }
+  
+}
